@@ -1,7 +1,14 @@
-#include <stdio.h>
-#include <stdint.h>
-#include <string.h>
-#include <malloc.h>
+#include "../inc/file.h"
+
+int main(void)
+{
+    printf("starting main...\n");
+
+    int* int_p = intPtr();
+    printf("value of int is %d\n", *int_p);
+
+    return 0;
+}
 
 int* intPtr(void)
 {
@@ -16,15 +23,4 @@ int* intPtr(void)
     *var_p = 10; 
 
     return var_p; 
-}
-
-int main(void)
-{
-    printf("starting main...\n");
-
-    int* int_p = intPtr();
-
-    printf("value of int is %d\n", *int_p);
-
-    return 0;
 }
