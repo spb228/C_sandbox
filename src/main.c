@@ -7,6 +7,10 @@ int main(void)
     int* int_p = intPtr();
     printf("value of int is %d\n", *int_p);
 
+    // free memory and remove dangling pointer
+    free(int_p);
+    int_p = NULL;
+
     return 0;
 }
 
