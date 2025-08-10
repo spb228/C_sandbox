@@ -6,6 +6,8 @@ def run_command(command, cwd=None):
     """
     Runs a shell command, captures its output, and prints it if the command fails.
     """
+
+    print("\n" + "="*50)
     print(f"Running command: {command}")
     
     # Use capture_output=True to capture stdout and stderr
@@ -21,6 +23,10 @@ def run_command(command, cwd=None):
         print(result.stderr)  # Print stderr, which often contains the error details
         print("="*50 + "\n")
         raise RuntimeError("Command failed")
+    else:
+        print("\n" + "="*50)
+        print("--- Standard Output ---")
+        print(result.stdout)  # Print stdout
 
 def main():
     project_root = os.path.abspath(os.path.dirname(__file__))
