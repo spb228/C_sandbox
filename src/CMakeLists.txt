@@ -3,7 +3,10 @@ cmake_minimum_required(VERSION 3.10)
 project(c_sandbox C)
 
 set(INC_LIB_FILES
-    ${CMAKE_CURRENT_SOURCE_DIR}/../inc/file.h)
+    ${CMAKE_CURRENT_SOURCE_DIR}/../inc/file.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/../inc/oop_car.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/../inc/oop_car.c
+)
 
 add_library(inc_lib STATIC 
     ${INC_LIB_FILES})

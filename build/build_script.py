@@ -15,7 +15,7 @@ def run_command(command, cwd=None):
     result = subprocess.run(command, shell=True, cwd=cwd, capture_output=True, text=True)
     
     if result.returncode != 0:
-        print("\n" + "="*50)
+        #print("\n" + "="*50)
         print("Command failed with return code:", result.returncode)
         print("--- Standard Output ---")
         print(result.stdout)  # Print stdout
@@ -24,7 +24,7 @@ def run_command(command, cwd=None):
         print("="*50 + "\n")
         raise RuntimeError("Command failed")
     else:
-        print("\n" + "="*50)
+        #print("\n" + "="*50)
         print("--- Standard Output ---")
         print(result.stdout)  # Print stdout
 
