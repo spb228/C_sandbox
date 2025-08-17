@@ -14,4 +14,4 @@ endif()
 
 add_subdirectory(../src src)
 
-MESSAGE("Done configuring entire CMake project")
+MESSAGE(STATUS "Done configuring entire CMake project")

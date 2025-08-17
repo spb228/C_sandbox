@@ -7,22 +7,13 @@ def run_command(command, cwd=None):
     print("\n" + "="*50)
     print(f"Running command: {command}")
     
-    # Use capture_output=True to capture stdout and stderr
-    # Use text=True to decode the output as strings
-    result = subprocess.run(command, shell=True, cwd=cwd, capture_output=True, text=True)
+    result = subprocess.run(command, shell=True, cwd=cwd, text=True)
     
     # if error, print it
     if result.returncode != 0:
         print("Command failed with return code:", result.returncode)
-        print("--- Standard Output ---")
-        print(result.stdout)  # Print stdout
-        print("--- Standard Error ---")
-        print(result.stderr)  # Print stderr, which often contains the error details
         print("="*50 + "\n")
         raise RuntimeError("Command failed")
-    else:
-        print("--- Standard Output ---")
-        print(result.stdout)  # Print stdout
 
 def main():
     project_root = os.path.abspath(os.path.dirname(__file__))

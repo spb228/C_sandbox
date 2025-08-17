@@ -20,4 +20,4 @@ target_link_libraries(${PROJECT_NAME} PRIVATE inc_lib)
 set_target_properties(${PROJECT_NAME} PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ../../../bin/)
 
-MESSAGE ("Done configuring src cmake")
+MESSAGE (STATUS "Done configuring src cmake")
