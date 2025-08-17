@@ -1,12 +1,9 @@
 import os
 import subprocess
 import shutil
+import sys
 
 def run_command(command, cwd=None):
-    """
-    Runs a shell command, captures its output, and prints it if the command fails.
-    """
-
     print("\n" + "="*50)
     print(f"Running command: {command}")
     
@@ -14,8 +11,8 @@ def run_command(command, cwd=None):
     # Use text=True to decode the output as strings
     result = subprocess.run(command, shell=True, cwd=cwd, capture_output=True, text=True)
     
+    # if error, print it
     if result.returncode != 0:
-        #print("\n" + "="*50)
         print("Command failed with return code:", result.returncode)
         print("--- Standard Output ---")
         print(result.stdout)  # Print stdout
@@ -24,7 +21,6 @@ def run_command(command, cwd=None):
         print("="*50 + "\n")
         raise RuntimeError("Command failed")
     else:
-        #print("\n" + "="*50)
         print("--- Standard Output ---")
         print(result.stdout)  # Print stdout
 
@@ -41,11 +37,18 @@ def main():
     os.makedirs(build_dir, exist_ok=True)
     os.chdir(build_dir)
 
-    # standard cmake and run commands
-    cmake_config_command = 'cmake .. -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Debug'
-    cmake_build_command = 'mingw32-make'
-    run_command_exe = 'c_sandbox.exe'
+    if sys.platform == 'win32':
+        # standard cmake and run commands
+        cmake_config_command = 'cmake .. -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Debug'
+        cmake_build_command = 'mingw32-make'
+        run_command_exe = 'c_sandbox.exe'
+    else:
+        # linux commands
+        cmake_config_command = 'cmake .. -DCMAKE_BUILD_TYPE=Debug'
+        cmake_build_command = 'make'
+        run_command_exe = './c_sandbox'
 
+    # execute build commands
     run_command(cmake_config_command)
     run_command(cmake_build_command)
     os.chdir(bin_dir)
