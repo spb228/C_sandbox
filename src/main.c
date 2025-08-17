@@ -12,8 +12,6 @@ int main(void)
     printf("Car's year is %d\n", swap_corolla->year);
     car_dtor(swap_corolla);
 
-    
-
     return 0;
 }
 
