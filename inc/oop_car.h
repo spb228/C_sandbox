@@ -11,7 +11,7 @@ typedef struct
 } car_t;
 
 car_t* car_new_alloc(); // new memory allocater
-void car_ctor(car_t*); // car ctor
+void car_ctor(car_t*, char*, char*, uint16_t year); // car ctor
 void car_dtor(car_t*); // car destroyer
 void car_turn_on(car_t*);
 void car_turn_off(car_t*);

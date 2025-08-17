@@ -5,9 +5,14 @@ int main(void)
 {
     printf("starting main...\n");
 
-    car_t* swap_corolla;
-    car_ctor(swap_corolla);
+    /* create car object */
+    car_t* swap_corolla = car_new_alloc();
+    car_ctor(swap_corolla, "Toyota", "Corolla", 2022);
+    printf("Car's make is %s and model is %s\n", swap_corolla->make, swap_corolla->model);
+    printf("Car's year is %d\n", swap_corolla->year);
     car_dtor(swap_corolla);
+
+    
 
     return 0;
 }
