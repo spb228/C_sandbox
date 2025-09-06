@@ -1,3 +1,9 @@
+#ifdef __linux__
+#define _GNU_SOURCE
+#include <unistd.h>
+#include <sys/syscall.h>
+#endif
+
 #include "../inc/file.h"
 #include "../inc/oop_car.h"
 
@@ -5,18 +11,23 @@ int main(void)
 {
     printf("starting main...\n");
 
-    /* create car object */
-    car_t* swap_corolla = car_new_alloc();
-    car_ctor(swap_corolla, "Toyota", "Corolla", 2022);
-    printf("Car's make is %s and model is %s\n", swap_corolla->make, swap_corolla->model);
-    printf("Car's year is %d\n", swap_corolla->year);
-    car_dtor(swap_corolla);
+    #ifdef __linux__
+    char message[20] = "Hello World!\n";
+    syscall(__NR_write, 1, message, strlen(message));
+    #endif
 
     return 0;
 }
 
 
 /* Old Test Code */
+
+/* create car object */
+// car_t* swap_corolla = car_new_alloc();
+// car_ctor(swap_corolla, "Toyota", "Corolla", 2022);
+// printf("Car's make is %s and model is %s\n", swap_corolla->make, swap_corolla->model);
+// printf("Car's year is %d\n", swap_corolla->year);
+// car_dtor(swap_corolla);
 
 // int* int_p = intPtr();
 // printf("value of int is %d\n", *int_p);
