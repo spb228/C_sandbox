@@ -1,0 +1,1 @@
+savedcmd_/home/spb/git/C_sandbox/kmodules/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/spb/git/C_sandbox/kmodules/Module.symvers -T /home/spb/git/C_sandbox/kmodules/modules.order -i Module.symvers -e 

@@ -7,13 +7,15 @@
 #include "../inc/file.h"
 #include "../inc/oop_car.h"
 
+#define STDOUT_FD 1
+
 int main(void)
 {
     printf("starting main...\n");
 
     #ifdef __linux__
     char message[20] = "Hello World!\n";
-    syscall(__NR_write, 1, message, strlen(message));
+    syscall(__NR_write, STDOUT_FD, message, strlen(message));
     #endif
 
     return 0;
