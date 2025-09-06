@@ -3,6 +3,8 @@
 #include <linux/init.h>
 #include <linux/proc_fs.h>
 
+#define MSG "Hello World From Kernel Module!\n"
+
 // The structure pointing to the proc file
 struct proc_dir_entry *proc_file;
 
@@ -10,14 +12,15 @@ struct proc_dir_entry *proc_file;
 ssize_t proc_file_read(struct file *file, char __user *ubuf,
                        size_t count, loff_t *ppos)
 {
-    int copied = 0;
-    if (*ppos > 0)
-    {
-        return 0;
-    }
-    copied = sprintf(ubuf, "Hello World From Kernel Module!\n");
-    *ppos = copied;
-    return copied;
+    // int copied = 0;
+    // if (*ppos > 0)
+    // {
+    //     return 0;
+    // }
+    // copied = sprintf(ubuf, "Hello World From Kernel Module!\n");
+    // *ppos = copied;
+    // return copied;
+    return simple_read_from_buffer(ubuf, count, ppos, MSG, strlen(MSG));
 }
 
 const struct proc_ops proc_file_fops = 
@@ -46,6 +49,6 @@ static void __exit hkwm_exit(void)
 }
 
 // Defining module callbacks
+MODULE_LICENSE("GPL");
 module_init(hwkm_init);
 module_exit(hkwm_exit);
-MODULE_LICENSE("GPL");
