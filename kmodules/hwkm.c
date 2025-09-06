@@ -17,6 +17,7 @@ ssize_t proc_file_read(struct file *file, char __user *ubuf,
     // {
     //     return 0;
     // }
+    /* SPB NOTE: cannot write to user space ubuf like this, this crashed */
     // copied = sprintf(ubuf, "Hello World From Kernel Module!\n");
     // *ppos = copied;
     // return copied;
