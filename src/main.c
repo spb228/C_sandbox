@@ -2,10 +2,11 @@
 #define _GNU_SOURCE
 #include <unistd.h>
 #include <sys/syscall.h>
+#include <pthread.h>
 #endif
 
-#include "../inc/file.h"
-#include "../inc/oop_car.h"
+#include "file.h"
+#include "oop_car.h"
 
 #define STDOUT_FD 1
 
@@ -13,29 +14,23 @@ int main(void)
 {
     printf("starting main...\n");
 
-    // #ifdef __linux__
-    // char message[20] = "Hello World!\n";
-    // syscall(__NR_write, STDOUT_FD, message, strlen(message));
-    // #endif
-    printf("%lld\n", (long long)__STDC_VERSION__);
-#if __STDC_VERSION__ >= 202311L
-    printf("Hello World from C23!\n");
-#elif __STDC_VERSION__ >= 201710L
-    printf("Hello World from C18!\n");
-#elif __STDC_VERSION__ >= 201112L
-    printf("Hello World from C11!\n");
-#elif __STDC_VERSION__ >= 199901L
-    printf("Hello World from C99!\n");
-#else
-    printf("Hello World from C89/C90!\n");
+#ifdef __linux__
+
+
+
 #endif
-    return 0;
+    
 
     return 0;
 }
 
 
 /* Old Test Code */
+
+// #ifdef __linux__
+// char message[20] = "Hello World!\n";
+// syscall(__NR_write, STDOUT_FD, message, strlen(message));
+// #endif
 
 /* create car object */
 // car_t* swap_corolla = car_new_alloc();

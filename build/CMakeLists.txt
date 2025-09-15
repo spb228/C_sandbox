@@ -12,6 +12,8 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Windows")
     set(CMAKE_C_COMPILER "C:/MinGW/bin/gcc.exe")
 endif()
 
+add_subdirectory(../inc inc_lib)
+
 add_subdirectory(../src src)
 
 MESSAGE(STATUS "Done configuring entire CMake project")
