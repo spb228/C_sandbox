@@ -4,7 +4,7 @@
 #include <sys/syscall.h>
 #include <pthread.h>
 #endif
-
+#include "stdlib.h"
 #include "file.h"
 #include "oop_car.h"
 
@@ -13,14 +13,7 @@
 int main(void)
 {
     printf("starting main...\n");
-
-#ifdef __linux__
-
-
-
-#endif
     
-
     return 0;
 }
 
@@ -60,3 +53,4 @@ int main(void)
 
 //     return var_p; 
 // }
+
