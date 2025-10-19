@@ -8,12 +8,11 @@
 #include "stdio.h"
 
 /* 
-Types of sync primitives:
-* pthread mutex
-* pthread spin lock
-* pthread condition variable
-* pthread semaphore
-* pthread barrier
+pthread mutex
+pthread spin lock
+pthread condition
+pthread semaphore
+pthread barrier
 */
 
 sem_t* sem;
