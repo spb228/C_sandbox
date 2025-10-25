@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(processes C)
+project(ipc C)
 
-add_executable(${PROJECT_NAME} processes.c)
+add_executable(${PROJECT_NAME} ipc.c)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE inc)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../../bin)
 
-MESSAGE (STATUS "Done configuring processes cmake")
+MESSAGE (STATUS "Done configuring ipc cmake")

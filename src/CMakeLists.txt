@@ -4,6 +4,7 @@ project(c_sandbox C)
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/threads threads)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/processes processes)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/IPC ipc)
 
 add_executable(${PROJECT_NAME} main.c)
 
